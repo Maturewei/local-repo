@@ -1,0 +1,32 @@
+###
+  #缩进格式要求非常严格！！！
+###
+# mybatis配置
+mybatis:
+  # 扫描映射文件[mapper文件夹需要在resources下创建]
+  mapper-locations: classpath:mapper/*.xml
+  # 配置别名扫描的包[model包需要创建]
+  type-aliases-package: com.hpu.model
+  configuration:
+    # 开启驼峰映射配置
+    map-underscore-to-camel-case: true
+# 连接数据库的信息
+spring:
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    # ip,端口,库名需要改成自己
+    url: jdbc:mysql://localhost:3306/zhaojiawei?serverTimezone=UTC
+    #url: jdbc:mysql://39.104.238.234:3309/hlg?serverTimezone=UTC
+    # 用户名和密码改成自己的
+    username: root
+    password: 123456
+    # 数据库连接池[不要动]
+    type: com.alibaba.druid.pool.DruidDataSource
+# yml文件
+logging:
+  level:
+    # 此处是包名,要跟项目中的包名 一致
+    com.hpu.mapper: DEBUG
+#修改后端端口
+server:
+  port: 8888

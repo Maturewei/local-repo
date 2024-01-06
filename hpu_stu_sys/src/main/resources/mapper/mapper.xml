@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- namespace名称空间 -->
+<!-- 用来关联,映射文件(XML)和接口文件,即接口的类路径 -->
+<mapper namespace="com.hpu.mapper.StudentMapper">
+
+    <!-- 查询语句,使用select标签
+        id是接口方法名
+        resultType sql查询返回后的结果,使用自己的Student类开封装
+        标签内写sql,#{key} 相当于从方法的参数取值
+    -->
+    <select id="findStuByUsernameAndPassword" resultType="com.hpu.model.Student">
+        select * from tb_stu
+        where username = #{username}
+        and password = #{password}
+    </select>
+
+    <select id="findAll" resultType="com.hpu.model.Student">
+        select * from tb_stu
+    </select>
+
+    <!-- 更新学生信息 -->
+    <update id="editById">
+            update tb_stu set
+               username=#{username},
+               password=#{password},
+               age=#{age},
+               sex=#{sex},
+               score=#{score},
+               birthday=#{birthday}
+            where id=#{id}
+    </update>
+
+    <!-- 删除学生信息 -->
+    <delete id="delById">
+        delete from tb_stu where id = #{id}
+    </delete>
+
+    <!-- 添加学生信息 -->
+    <delete id="addStu">
+        insert into tb_stu
+           (username,password,sex,age,score,birthday)
+        values
+           (#{username},#{password},#{sex},#{age},#{score},#{birthday})
+    </delete>
+
+</mapper>

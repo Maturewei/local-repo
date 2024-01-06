@@ -1,0 +1,9 @@
+CREATE TABLE tb_stu(
+ id INT PRIMARY KEY AUTO_INCREMENT,
+ username VARCHAR(20),
+ PASSWORD VARCHAR(20),
+ age INT,
+ sex INT COMMENT "0男1女",
+ score DOUBLE(10,2),
+ birthday DATE
+);
